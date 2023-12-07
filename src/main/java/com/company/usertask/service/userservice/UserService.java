@@ -1,8 +1,9 @@
-package com.company.usertask.service.userservice;
+package com.company.usertask.service;
 
 
-import com.company.usertask.dto.user.UserDto;
-import com.company.usertask.dto.user.UserDtoRegister;
+import com.company.usertask.dto.TaskDtoRegister;
+import com.company.usertask.dto.UserDto;
+import com.company.usertask.dto.UserDtoRegister;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
