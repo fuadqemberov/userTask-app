@@ -6,14 +6,18 @@ import com.company.usertask.dto.UserDto;
 import com.company.usertask.dto.UserDtoRegister;
 import com.company.usertask.entity.Task;
 import com.company.usertask.entity.User;
+import com.company.usertask.error.SuccessMessage;
 import com.company.usertask.exception.UserNotFoundException;
 import com.company.usertask.mapper.TaskMapper;
 import com.company.usertask.mapper.UserMapper;
 import com.company.usertask.repository.TaskRepository;
 import com.company.usertask.repository.UserRepository;
+import com.company.usertask.response.MessageResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -66,11 +70,10 @@ public class UserServiceImpl implements UserService {
 
     BCrypt.Hasher crypt = BCrypt.withDefaults();
     @Override
-    public UserDtoRegister addUser(UserDtoRegister dto) {
+    public ResponseEntity<?> addUser(UserDtoRegister dto) {
       dto.setPassword(crypt.hashToString(4,dto.getPassword().toCharArray()));
-      //List<TaskDto> list = dto.getTasks();
-//      dto.setTasks();
-     return mapper.toUserRegister(repository.save(mapper.toUserEntity2(dto)));
+      UserDto dto2 = mapper.toUserDto(mapper.toUserEntity2(dto));
+     return MessageResponse.response(SuccessMessage.SUCCESS_ADD, dto2, null, HttpStatus.OK);
     }
 
     @Override
