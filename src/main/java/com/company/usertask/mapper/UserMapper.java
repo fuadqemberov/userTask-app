@@ -1,13 +1,13 @@
 package com.company.usertask.mapper;
 
 
-import com.company.usertask.dto.UserDto;
-import com.company.usertask.dto.UserDtoRegister;
+import com.company.usertask.dto.user.UserDto;
+import com.company.usertask.dto.user.UserDtoRegister;
+import com.company.usertask.dto.user.UserSimpleDto;
 import com.company.usertask.entity.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 import org.mapstruct.MappingTarget;
-import org.mapstruct.NullValuePropertyMappingStrategy;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -31,5 +31,9 @@ public interface UserMapper {
     User toUserEntity2(UserDtoRegister regDto);
 
     UserDtoRegister toUserRegister(User user);
+
+    UserSimpleDto toSimpleDto(UserDtoRegister dto);
+
+
 
 }

@@ -1,8 +1,8 @@
 package com.company.usertask.mapper;
 
 
-import com.company.usertask.dto.TaskDto;
-import com.company.usertask.dto.TaskDtoRegister;
+import com.company.usertask.dto.task.TaskDto;
+import com.company.usertask.dto.task.TaskDtoRegister;
 import com.company.usertask.entity.Task;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;

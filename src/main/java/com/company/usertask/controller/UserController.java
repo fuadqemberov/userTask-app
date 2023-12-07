@@ -1,13 +1,12 @@
 package com.company.usertask.controller;
 
 
-import com.company.usertask.dto.TaskDto;
-import com.company.usertask.dto.TaskDtoRegister;
-import com.company.usertask.dto.UserDto;
-import com.company.usertask.dto.UserDtoRegister;
+import com.company.usertask.dto.task.TaskDto;
+import com.company.usertask.dto.user.UserDto;
+import com.company.usertask.dto.user.UserDtoRegister;
 import com.company.usertask.mapper.TaskMapper;
-import com.company.usertask.service.TaskService;
-import com.company.usertask.service.UserService;
+import com.company.usertask.service.taskservice.TaskService;
+import com.company.usertask.service.userservice.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

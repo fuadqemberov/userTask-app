@@ -1,6 +1,6 @@
 package com.company.usertask.repository;
 
-import com.company.usertask.dto.TaskDto;
+import com.company.usertask.dto.task.TaskDto;
 import com.company.usertask.entity.Task;
 
 import com.company.usertask.entity.User;

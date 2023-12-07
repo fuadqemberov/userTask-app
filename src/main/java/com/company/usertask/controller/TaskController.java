@@ -1,18 +1,12 @@
 package com.company.usertask.controller;
 
-import com.company.usertask.dto.TaskDto;
-import com.company.usertask.entity.Task;
+import com.company.usertask.dto.task.TaskDto;
 import com.company.usertask.mapper.TaskMapper;
 import com.company.usertask.repository.TaskRepository;
-import com.company.usertask.service.TaskService;
+import com.company.usertask.service.taskservice.TaskService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
-
-import java.awt.print.Pageable;
 
 
 @RestController
