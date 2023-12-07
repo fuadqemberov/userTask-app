@@ -1,4 +1,4 @@
-package com.company.usertask.dto.user;
+package com.company.usertask.dto;
 
 
 

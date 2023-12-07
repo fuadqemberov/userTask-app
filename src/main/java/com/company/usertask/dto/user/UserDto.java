@@ -1,7 +1,6 @@
-package com.company.usertask.dto.user;
+package com.company.usertask.dto;
 
 
-import com.company.usertask.dto.task.TaskDto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
