@@ -19,7 +19,7 @@ public class Task extends BaseEntity<Long>{
     private String description;
 
     @ToString.Exclude
-    @ManyToMany(mappedBy = "tasks")
+    @ManyToMany(mappedBy = "tasks", fetch = FetchType.LAZY)
     private Set<User> users = new HashSet<>();
 
     @Override

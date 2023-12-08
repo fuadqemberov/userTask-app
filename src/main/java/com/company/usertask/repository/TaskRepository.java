@@ -16,7 +16,7 @@ public interface TaskRepository extends JpaRepository<Task,Long> {
             "where ut.user_id =  :id",nativeQuery = true)
     List<Task> getTasksByUserId(Long id);
 
-    @Query("SELECT new com.company.usertask.dto.TaskDto(t.id,t.name,t.description) FROM Task t")
+    @Query("SELECT new com.company.usertask.dto.task.TaskDto(t.id,t.name,t.description) FROM Task t")
     List<TaskDto> findAllTasks();
 
     List<Task> findTasksByUsers(User user);

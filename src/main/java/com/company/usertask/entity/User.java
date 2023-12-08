@@ -27,7 +27,7 @@ public class User extends  BaseEntity<Long> {
    @Column(name="password")
     private String password;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.ALL },fetch = FetchType.LAZY)
     @JoinTable(
             name = "user_tasks",
             joinColumns = { @JoinColumn(name = "user_id") },

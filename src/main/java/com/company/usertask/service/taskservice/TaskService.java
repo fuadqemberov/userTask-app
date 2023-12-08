@@ -1,13 +1,9 @@
-package com.company.usertask.service;
+package com.company.usertask.service.taskservice;
 
-import com.company.usertask.dto.TaskDto;
-import com.company.usertask.dto.TaskDtoRegister;
-import com.company.usertask.dto.UserDto;
+import com.company.usertask.dto.task.TaskDto;
+import com.company.usertask.dto.task.TaskDtoRegister;
 import com.company.usertask.entity.Task;
-import org.springframework.data.domain.Page;
-import org.springframework.stereotype.Service;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 

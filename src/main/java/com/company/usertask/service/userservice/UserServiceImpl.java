@@ -1,9 +1,9 @@
-package com.company.usertask.service;
+package com.company.usertask.service.userservice;
 
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import com.company.usertask.dto.UserDto;
-import com.company.usertask.dto.UserDtoRegister;
+import com.company.usertask.dto.user.UserDto;
+import com.company.usertask.dto.user.UserDtoRegister;
 import com.company.usertask.entity.Task;
 import com.company.usertask.entity.User;
 import com.company.usertask.error.SuccessMessage;
@@ -13,6 +13,7 @@ import com.company.usertask.mapper.UserMapper;
 import com.company.usertask.repository.TaskRepository;
 import com.company.usertask.repository.UserRepository;
 import com.company.usertask.response.MessageResponse;
+import com.company.usertask.service.taskservice.TaskService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -72,8 +73,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseEntity<?> addUser(UserDtoRegister dto) {
       dto.setPassword(crypt.hashToString(4,dto.getPassword().toCharArray()));
-      UserDto dto2 = mapper.toUserDto(mapper.toUserEntity2(dto));
-     return MessageResponse.response(SuccessMessage.SUCCESS_ADD, dto2, null, HttpStatus.OK);
+     repository.save(mapper.toUserEntity2(dto));
+     return MessageResponse.response(SuccessMessage.SUCCESS_ADD, mapper.toSimpleDto(dto), null, HttpStatus.OK);
     }
 
     @Override

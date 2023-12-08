@@ -9,14 +9,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
-@RestController
-@RequiredArgsConstructor
 
+@RequiredArgsConstructor
+@RestController
 public class TaskController {
 
     private final TaskService service;
     private final TaskRepository repository;
     private final TaskMapper mapper;
+
+
 
     @GetMapping("/tasks")
     public ResponseEntity<?> getAll(){

@@ -1,4 +1,4 @@
-package com.company.usertask.dto;
+package com.company.usertask.dto.task;
 
 import lombok.*;
 import org.springframework.stereotype.Component;
