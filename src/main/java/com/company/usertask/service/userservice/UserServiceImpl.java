@@ -6,6 +6,7 @@ import com.company.usertask.dto.user.UserDto;
 import com.company.usertask.dto.user.UserDtoRegister;
 import com.company.usertask.entity.Task;
 import com.company.usertask.entity.User;
+import com.company.usertask.entity.specification.UserSpecification;
 import com.company.usertask.error.SuccessMessage;
 import com.company.usertask.exception.UserNotFoundException;
 import com.company.usertask.mapper.TaskMapper;
@@ -17,6 +18,9 @@ import com.company.usertask.service.taskservice.TaskService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -64,7 +68,7 @@ public class UserServiceImpl implements UserService {
     }
 
 
-     @Override
+    @Override
     public void deleteById(Long id) {
         repository.deleteById(id);
     }
@@ -87,6 +91,16 @@ public class UserServiceImpl implements UserService {
        u.setTasks(list);
        return mapper.toUserDto(repository.save(u));
     }
+
+    @Override
+    public List<UserDto> getEmployeeByCriteria(int page, int size,  String surname) {
+        Specification<User> where = Specification.where(UserSpecification.surnameContains(surname));
+        Pageable pageable = PageRequest.of(page, size);
+        return  repository.findAllPageByCriteria(where, pageable);
+
+    }
+
+
 
 
 }

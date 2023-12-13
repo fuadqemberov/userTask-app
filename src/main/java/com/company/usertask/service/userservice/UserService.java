@@ -3,6 +3,7 @@ package com.company.usertask.service.userservice;
 
 import com.company.usertask.dto.user.UserDto;
 import com.company.usertask.dto.user.UserDtoRegister;
+import com.company.usertask.dto.user.UserSimpleDto;
 import org.springframework.http.ResponseEntity;
 
 import java.util.List;
@@ -14,5 +15,7 @@ public interface UserService {
    void deleteById(Long id);
    ResponseEntity<?> addUser(UserDtoRegister dto);
    UserDto addTaskById(Long userId, Long taskId);
+
+   List<UserDto> getEmployeeByCriteria(int page, int size, String surname);
 
 }

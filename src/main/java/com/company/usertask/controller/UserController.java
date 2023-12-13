@@ -4,15 +4,20 @@ package com.company.usertask.controller;
 import com.company.usertask.dto.task.TaskDto;
 import com.company.usertask.dto.user.UserDto;
 import com.company.usertask.dto.user.UserDtoRegister;
+
+import com.company.usertask.dto.user.UserSimpleDto;
 import com.company.usertask.mapper.TaskMapper;
+import com.company.usertask.repository.UserRepository;
 import com.company.usertask.service.taskservice.TaskService;
 import com.company.usertask.service.userservice.UserService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.List;
+
+import static com.company.usertask.entity.specification.UserSpecification.*;
 
 
 @RestController
@@ -23,6 +28,8 @@ public class UserController {
     private final UserService service;
     private final TaskService taskService;
     private final TaskMapper taskMapper;
+    private final UserRepository repository;
+
 
 
     @GetMapping("/users")
@@ -61,4 +68,11 @@ public class UserController {
     public ResponseEntity<?> setTaskToUserByUserId(@RequestParam Long userid,@RequestParam Long taskid){
         return ResponseEntity.ok(service.addTaskById(userid,taskid));
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<?> findByFirstnameAndDepartment(@RequestParam String surname
+                                                          ){
+       return ResponseEntity.ok(service.getEmployeeByCriteria(0,5,surname));
+    }
+
 }

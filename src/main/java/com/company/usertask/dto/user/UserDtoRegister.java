@@ -2,12 +2,10 @@ package com.company.usertask.dto.user;
 
 
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotBlank;
-
-import java.util.List;
 
 @Component
 @Setter
