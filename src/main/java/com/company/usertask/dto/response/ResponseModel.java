@@ -1,4 +1,4 @@
-package com.company.usertask.response;
+package com.company.usertask.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
